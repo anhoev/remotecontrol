@@ -23,7 +23,7 @@ app.get('/kill/:name', function (req, res) {
 })
 
 app.post('/dir', function (req, res) {
-    process.chdir('req.body.dir');
+    process.chdir(req.body.dir);
     res.send('OK');
 })
 
