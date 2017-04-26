@@ -22,6 +22,11 @@ app.get('/kill/:name', function (req, res) {
     });
 })
 
+app.post('/dir', function (req, res) {
+    process.chdir('req.body.dir');
+    res.send('OK');
+})
+
 app.post('/cmd', function (req, res) {
     const out = require('child_process').execSync(req.body.cmd, 'utf-8');
     res.send(out.toString());
