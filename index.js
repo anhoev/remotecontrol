@@ -11,7 +11,7 @@ let logging = {};
 
 const treeKill = require('tree-kill');
 
-app.get('/kill/:name', function *(req, res) {
+app.get('/kill/:name', function (req, res) {
     treeKill(mapping[req.params.name], 'SIGKILL', function (err) {
         if (err) {
             res.status(500).send();
@@ -21,12 +21,12 @@ app.get('/kill/:name', function *(req, res) {
     });
 })
 
-app.post('/cmd', function *(req, res) {
+app.post('/cmd', function (req, res) {
     const out = require('child_process').execSync(req.body.cmd, 'utf-8');
     res.send(out.toString());
 })
 
-app.post('/cmd/:name', function *(req, res) {
+app.post('/cmd/:name', function (req, res) {
 
     const arr = req.body.cmd.split(' ');
     const first = arr.shift();
@@ -48,6 +48,6 @@ app.post('/cmd/:name', function *(req, res) {
     res.send("OK");
 })
 
-app.get('/logging/:name', function *(req, res) {
+app.get('/logging/:name', function (req, res) {
     res.send(logging[req.params.name]);
 })
