@@ -1,8 +1,6 @@
 'use strict';
 const _ = require('lodash');
 
-process.chdir(require('path').resolve(__dirname, '../'));
-
 const express = require('express');
 const app = express();
 
