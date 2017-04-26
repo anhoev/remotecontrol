@@ -10,7 +10,6 @@ let logging = {};
 const treeKill = require('tree-kill');
 
 app.listen(4444, function () {
-    console.log('Example app listening on port 3000!')
 })
 
 app.get('/kill/:name', function (req, res) {
