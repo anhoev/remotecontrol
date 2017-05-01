@@ -4,6 +4,11 @@ const _ = require('lodash');
 const express = require('express');
 const app = express();
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(require('method-override')());
+
 let mapping = {};
 let logging = {};
 
